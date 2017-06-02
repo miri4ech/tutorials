@@ -10,30 +10,24 @@
 	<body>
 		<div id="root"></div>
 		<script type="text/babel">
-
-			function formatName(user) {
-				return user.firstName + ' ' + user.lastName;
+		
+			function Welcome(props) {
+				return <h1>Hello, {props.name}</h1>;
 			}
-
-			const user = {
-				firstName: 'Miri',
-				lastName: 'Krakov'
-			};
-
-			function tick(){
-				const element = (
+			function App() {
+				return (
 					<div>
-						<h1>Hello, {formatName(user)}!</h1>
-						<h2>It is {new Date().toLocaleTimeString()}.</h2>
+						<Welcome name="Sara" />
+						<Welcome name="Cahal" />
+						<Welcome name="Edite" />
 					</div>
 				);
-
-				ReactDOM.render(
-					element,
-					document.getElementById('root')
-				);
 			}
-			setInterval(tick,100);
+
+			ReactDOM.render(
+				<App />,
+				document.getElementById('root')
+			);
 
 		</script>
 	</body>

@@ -11,29 +11,23 @@
 		<div id="root"></div>
 		<script type="text/babel">
 
-			function formatName(user) {
-				return user.firstName + ' ' + user.lastName;
-			}
+			function ActionLink() {
+				function handleClick(e) {
+					e.preventDefault();
+					console.log('The link was clicked.');
+				}
 
-			const user = {
-				firstName: 'Miri',
-				lastName: 'Krakov'
-			};
-
-			function tick(){
-				const element = (
-					<div>
-						<h1>Hello, {formatName(user)}!</h1>
-						<h2>It is {new Date().toLocaleTimeString()}.</h2>
-					</div>
-				);
-
-				ReactDOM.render(
-					element,
-					document.getElementById('root')
+				return (
+					<a href="#" onClick={handleClick}>
+					Click me
+					</a>
 				);
 			}
-			setInterval(tick,100);
+
+			ReactDOM.render(
+				ActionLink(),
+				document.getElementById('root')
+			);
 
 		</script>
 	</body>
